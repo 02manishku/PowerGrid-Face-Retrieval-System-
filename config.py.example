@@ -1,0 +1,26 @@
+# Database Configuration
+# Copy this file to config.py and update with your actual database credentials
+# Add config.py to .gitignore to keep credentials secure
+
+DB_CONFIG = {
+    'host': 'localhost',
+    'user': 'root',
+    'password': 'your_password_here',  # Change this to your MySQL password
+    'database': 'powergrid_face_db',
+    'buffered': True
+}
+
+# Flask Secret Key
+# Generate a secure random key for production
+# You can generate one using: python -c "import secrets; print(secrets.token_hex(32))"
+SECRET_KEY = 'your_secret_key_here'  # Change this to a secure random key
+
+# Face Recognition Settings
+SIMILARITY_THRESHOLD = 0.55  # Lower values = more matches (but potentially more false positives)
+FACE_RECOGNITION_MODEL = 'ArcFace'  # Options: VGG-Face, Facenet, OpenFace, DeepFace, DeepID, ArcFace, Dlib
+
+# Application Settings
+DEBUG = False  # Set to False in production
+HOST = '127.0.0.1'
+PORT = 5000
+

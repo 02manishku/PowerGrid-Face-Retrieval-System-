@@ -1,0 +1,15 @@
+What we’ve built is a simple but powerful idea: every time your company hosts an event, thousands of photos get taken, but finding yourself in those photos is painful. 
+Our system fixes that. An employee logs in, and instantly sees every photo they appear in—organized by event, with dates, locations, and one-click downloads. 
+No tagging, no manual searching. It just works.
+Behind the scenes, we use state-of-the-art face recognition. We create a secure “face signature” for each employee using a leading deep learning model,
+and we do the same for every face detected in event photos. 
+Then we match them with high precision using a similarity score. 
+The result is a personal photo feed for every employee, built automatically from the company’s photo archives.
+It’s designed for scale—thousands of images, many events, lots of users. The pipelines are optimized to process large photo sets quickly.
+The web app is clean and lightweight: log in, see your events, view your photos, download a ZIP or export a CSV report if needed. 
+Metadata like venue and date is preserved, and we can even link to the event location on a map.
+For the organization, this solves three problems at once: it saves time, it boosts engagement, and it turns unstructured media into useful, searchable assets. 
+Teams no longer spend hours digging through shared drives. People can relive and share meaningful moments. HR and events teams get a clear picture of participation—without any manual effort.
+We’ve built this with security and privacy in mind. Access is scoped to the individual; employees see only their matches. 
+The system is ready for enterprise controls like hashed passwords, environment-based secrets, and auditability. And the architecture is ready to evolve—vector search for instant retrieval at massive scale, SSO integration, rich analytics, even mobile notifications that say, “You appeared in five new photos.”
+In short: this is practical AI serving a human purpose. It takes a chaotic flood of photos and turns it into a personal, secure, and delightful experience for every employee—while giving the organization real insights and real efficiency. It’s the kind of technology that disappears into the background and makes everyday life a little better.

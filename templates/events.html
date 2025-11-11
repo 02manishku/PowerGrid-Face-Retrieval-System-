@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ employee.name }} - Events</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <img src="{{ url_for('static', filename='img/powergrid-logo.png') }}" class="logo">
+    <span class="brand-name">TASVEER</span>
+    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+  </div>
+
+  <!-- Profile Card -->
+  <div class="profile-container">
+    <div class="profile-card">
+      <h2>{{ employee.name }}</h2>
+      <p><strong>ID:</strong> {{ employee.employee_id }}</p>
+      <p><strong>Email:</strong> {{ employee.email }}</p>
+    </div>
+
+    <!-- Events Section -->
+    <h3 style="margin-bottom: 20px;">Matched Events</h3>
+
+    {% if events %}
+      <div class="event-grid">
+        {% for event_name, meta in events %}
+          <div class="event-card">
+            <h4>{{ event_name }}</h4>
+            <p><strong>Place:</strong> {{ meta.get("event place", meta.get("Event Place", "Unknown")) }}</p>
+            <p><strong>Date:</strong> {{ meta.get("event date", meta.get("Event Date", "Unknown")) }}</p>
+
+            {% if meta.get("geolocation") or meta.get("Geolocation") %}
+              <p>
+                <a href="https://www.google.com/maps/search/?api=1&query={{ meta.get('geolocation', meta.get('Geolocation')) | urlencode }}" target="_blank">
+                  📍 View Location
+                </a>
+              </p>
+            {% endif %}
+
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+              <a href="{{ url_for('event_photos', event_name=event_name) }}" class="btn-view">View Photos</a>
+              <a href="{{ url_for('download_event_photos', event_name=event_name) }}" class="btn-download">Download</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="no-photos">😔 No matched events found.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

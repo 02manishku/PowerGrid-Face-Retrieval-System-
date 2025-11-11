@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ employee.name }} - PowerGrid Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <img src="{{ url_for('static', filename='img/powergrid-logo.png') }}" class="logo">
+    <span class="brand-name">TASVEER</span>
+    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+  </div>
+
+  <!-- Profile Container -->
+  <div class="profile-container">
+    <div class="profile-card">
+      <h2>{{ employee.name }}</h2>
+      <p><strong>ID:</strong> {{ employee.employee_id }}</p>
+      <p><strong>Email:</strong> {{ employee.email }}</p>
+    </div>
+
+    {% if photos %}
+    <!-- Swiper Slider -->
+    <h3>Matched Photos</h3>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        {% for photo in photos %}
+        <div class="swiper-slide">
+          <img src="{{ url_for('static', filename='matched_photos/' ~ photo.filename) }}" alt="Matched Photo" loading="lazy">
+          <div class="caption">{{ photo.event_name }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Photo Grid -->
+    <h3>All Matched Photos</h3>
+    <div class="photo-grid">
+      {% for photo in photos %}
+      <div class="photo-card">
+        <a href="#preview-{{ loop.index }}">
+          <img src="{{ url_for('static', filename='matched_photos/' ~ photo.filename) }}" alt="Matched Photo" loading="lazy">
+        </a>
+
+        <div class="photo-meta">
+          <p><strong>Event:</strong> {{ photo.event_name }}</p>
+          <p><strong>Location:</strong> {{ photo.event_place or 'Unknown' }}</p>
+          <p><strong>Date:</strong> {{ photo.event_date or 'Unknown' }}</p>
+
+          {% if photo.employee_ids %}
+          <p><strong>Matched Employee IDs:</strong> {{ photo.employee_ids | join(', ') }}</p>
+          {% endif %}
+
+          {% if photo.geolocation %}
+          <p>
+            <a href="https://www.google.com/maps/search/?api=1&query={{ photo.geolocation | urlencode }}" target="_blank" class="location-link">
+              📍 View Location
+            </a>
+          </p>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Lightbox Preview -->
+      <div id="preview-{{ loop.index }}" class="lightbox" role="dialog" aria-label="Image Preview">
+        <a href="#" style="position:absolute;top:20px;right:30px;font-size:30px;color:white;text-decoration:none;">&times;</a>
+        <img src="{{ url_for('static', filename='matched_photos/' ~ photo.filename) }}" alt="Preview of {{ photo.filename }}">
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="no-photos">😔 No matching photos found for this event.</p>
+    {% endif %}
+
+    <!-- Navigation Buttons -->
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="{{ url_for('events') }}" class="btn-view">← Back to Events</a>
+      {% if photos %}
+      <a href="{{ url_for('download_csv', event_name=photos[0].event_name) }}" class="btn-download" style="margin-left: 15px;">
+        📥 Download CSV Report
+      </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      }
+    });
+  </script>
+</body>
+</html>

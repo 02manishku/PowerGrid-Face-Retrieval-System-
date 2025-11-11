@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PowerGrid Face Portal - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login-page">
+    <div class="navbar">
+        <img src="{{ url_for('static', filename='img/powergrid-logo.png') }}" class="logo">
+        <span class="brand-name">TASVEER</span>
+    </div>
+
+    <div class="login-container">
+        <h2>Welcome to TASVEER</h2>
+        <form method="post">
+            <input type="text" name="employee_id" placeholder="Employee Number" required>
+            <input type="password" name="password" placeholder="Password" required>
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+</body>
+</html>
