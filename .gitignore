@@ -72,6 +72,17 @@ Desktop.ini
 ~$*.pptx
 ~$*.docx
 
+# Document files (exclude unnecessary documentation)
+*.docx
+*.pptx
+*.ppt
+DATABASE_RESTORATION_GUIDE.md
+PROJECT_PRESENTATION.md
+explaination.txt
+restore_database.ps1
+
+# Keep README.md (important documentation)
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
