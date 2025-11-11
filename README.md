@@ -1,12 +1,12 @@
-# POWERGRID Face Recognition System
+# POWERGRID Face Retreival System
 
 An AI-powered photo discovery platform that automatically matches employees with event photos using state-of-the-art facial recognition technology.
 
-## 🎯 Overview
+## Overview
 
 This system enables employees to instantly access all photos they appear in across company events. It uses deep learning (ArcFace model) to automatically detect and match faces in event photographs.
 
-## ✨ Features
+## Features
 
 - **Automatic Face Recognition**: Uses ArcFace deep learning model for high-accuracy face matching
 - **Employee Portal**: Self-service web interface for employees to view their photos
@@ -15,7 +15,7 @@ This system enables employees to instantly access all photos they appear in acro
 - **Secure Authentication**: Employee ID and password protected access
 - **Scalable Architecture**: Built to handle thousands of photos and employees
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Backend**: Flask (Python)
 - **AI/ML**: DeepFace, TensorFlow, Keras
@@ -29,11 +29,11 @@ This system enables employees to instantly access all photos they appear in acro
 - MySQL Server
 - Virtual environment (recommended)
 
-## 🚀 Installation
+## Installation
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/02manishku/PowerGrid-Face-Retrieval-System-.git
    cd powergrid-face-recognition
    ```
 
@@ -71,7 +71,7 @@ This system enables employees to instantly access all photos they appear in acro
 7. **Access the application**
    - Open your browser and navigate to `http://localhost:5000`
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 powergrid-face-recognition/
@@ -92,7 +92,7 @@ powergrid-face-recognition/
 └── README.md                   # This file
 ```
 
-## 🔒 Security Notes
+## Security Notes
 
 ⚠️ **Important**: Before deploying to production:
 
@@ -102,7 +102,7 @@ powergrid-face-recognition/
 4. **Hash passwords**: Implement password hashing instead of plaintext storage
 5. **Enable HTTPS**: Use HTTPS in production for secure communication
 
-## 📝 Usage
+## Usage
 
 ### Encoding Employee Photos
 
@@ -129,14 +129,14 @@ powergrid-face-recognition/
 3. View matched photos by event
 4. Download photos or CSV reports
 
-## 🧪 Testing
+## Testing
 
 - Test the face recognition accuracy with known employee photos
 - Verify database connections and queries
 - Test the web interface with different browsers
 - Verify download functionality (ZIP and CSV)
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
@@ -152,15 +152,15 @@ This project is proprietary and confidential.
 
 - POWERGRID Development Team
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - DeepFace library for face recognition capabilities
 - Flask community for web framework
 - MySQL for robust database management
 
-## 📧 Support
+## Support
 
-For issues or questions, please contact the development team.
+For issues or questions, please contact me.
 
 ---
 
