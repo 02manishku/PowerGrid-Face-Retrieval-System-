@@ -1,4 +1,4 @@
-# POWERGRID Face Retreival System
+# Face Retreival System
 
 An AI-powered photo discovery platform that automatically matches employees with event photos using state-of-the-art facial recognition technology.
 
